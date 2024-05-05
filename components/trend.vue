@@ -1,6 +1,4 @@
 <script setup>
-  import {useCurrency} from "~/composables/useCurrency.js";
-
   const props = defineProps({
     title: String,
     amount: Number,
@@ -9,7 +7,7 @@
     loading: Boolean
   })
 
-  const heroicons = {
+  const heroIcons = {
     up: 'i-heroicons-arrow-trending-up',
     down: 'i-heroicons-arrow-trending-down'
   }
@@ -18,7 +16,7 @@
       () => props.amount >= props.lastAmount
   )
   const icon = computed(
-      () => trendingUp.value ? heroicons.up : heroicons.down
+      () => trendingUp.value ? heroIcons.up : heroIcons.down
   )
   const percentageTrend = computed(() => {
     if (props.amount === 0 || props.lastAmount === 0) return '∞%'
