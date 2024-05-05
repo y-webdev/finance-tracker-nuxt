@@ -21,10 +21,9 @@
     @apply
     flex items-center justify-between
     mt-10
-
   }
 
-  .link {
+  header .link {
     @apply
     text-xl font-bold
   }

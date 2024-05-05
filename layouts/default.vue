@@ -27,12 +27,10 @@ useHead({
 </template>
 
 <style>
-/* Set the font family for the entire site */
 body {
+  /* Set the font family for the entire site */
   font-family: 'Inter', sans-serif;
-}
-/* Set the background color for the entire site */
-body {
+  /* Set the background color for the entire site */
   @apply
   dark:bg-gray-900 bg-white
 }
