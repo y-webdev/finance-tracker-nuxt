@@ -1,5 +1,5 @@
 <script setup>
-import { transactionViewOptions } from "~/composable/constants.js";
+import { transactionViewOptions } from "~/constants";
 
 const selectedView = ref(transactionViewOptions[1])
 </script>

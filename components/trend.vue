@@ -1,4 +1,6 @@
 <script setup>
+  import {useCurrency} from "~/composables/useCurrency.js";
+
   const props = defineProps({
     title: String,
     amount: Number,
@@ -23,9 +25,9 @@
     const bigger = Math.max(props.amount, props.lastAmount)
     const lower = Math.min(props.amount, props.lastAmount)
     const ratio = ((bigger - lower) / lower) * 100
-    // console.log(bigger, lower, ratio, Math.ceil(ratio))
     return `${Math.ceil(ratio)}%`
   })
+  const { currency } = useCurrency(props.amount)
 </script>
 
 <template>
@@ -34,7 +36,7 @@
 
     <div class="amount-container">
       <USkeleton class="h-8 w-full" v-if="loading" />
-      <div v-else>{{ amount }}</div>
+      <div v-else>{{ currency }}</div>
     </div>
 
     <div>
