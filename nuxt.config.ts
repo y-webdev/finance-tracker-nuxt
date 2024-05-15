@@ -2,7 +2,7 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
-    '@nuxthq/ui',
+    '@nuxt/ui',
     '@nuxtjs/supabase',
   ],
   supabase: {
