@@ -83,7 +83,7 @@ const items = [
 <style scoped>
   .transaction-container {
     @apply
-    grid grid-cols-2
+    grid grid-cols-3
     py-4
     border-b border-gray-200 dark:border-gray-800
     text-gray-900 dark:text-gray-100
@@ -91,7 +91,8 @@ const items = [
 
   .info-container {
     @apply
-    flex items-center justify-between
+    flex items-center justify-between col-span-2
+    space-x-4
   }
 
   .icon-container {
