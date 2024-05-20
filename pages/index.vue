@@ -3,7 +3,7 @@ import { transactionViewOptions } from "~/constants";
 
 const selectedView = ref(transactionViewOptions[1])
 const isOpen = ref(false)
-const dates = useSelectedTimePeriod(selectedView)
+const { current, previous } = useSelectedTimePeriod(selectedView)
 const {
   pending,
   refresh,
@@ -16,9 +16,12 @@ const {
       byDate
     }
   }
-} = useFetchTransactions()
+} = useFetchTransactions(current)
 
-await refresh()
+const {
+    incomeTotal: previousIncomeTotal,
+    expenseTotal: previousExpenseTotal,
+} = useFetchTransactions(current)
 </script>
 
 <template>
@@ -31,8 +34,8 @@ await refresh()
     </div>
   </section>
   <section class="trend">
-    <Trend color="green" title="Income" :amount="incomeTotal" :last-amount="3000" :loading="pending" />
-    <Trend color="red" title="Expense" :amount="expenseTotal" :last-amount="3000" :loading="pending" />
+    <Trend color="green" title="Income" :amount="incomeTotal" :last-amount="previousIncomeTotal" :loading="pending" />
+    <Trend color="red" title="Expense" :amount="expenseTotal" :last-amount="previousExpenseTotal" :loading="pending" />
     <Trend color="green" title="Investments" :amount="4000" :last-amount="5000" :loading="pending" />
     <Trend color="red" title="Saving" :amount="4000" :last-amount="4100" :loading="pending" />
   </section>
