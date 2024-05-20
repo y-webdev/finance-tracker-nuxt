@@ -17,11 +17,16 @@ const {
     }
   }
 } = useFetchTransactions(current)
+// await refresh() TODO: why
 
 const {
-    incomeTotal: previousIncomeTotal,
-    expenseTotal: previousExpenseTotal,
-} = useFetchTransactions(current)
+    refresh: refreshPrevious, // TODO: why
+    transactions: {
+      incomeTotal: previousIncomeTotal,
+      expenseTotal: previousExpenseTotal,
+    }
+} = useFetchTransactions(previous)
+// await refreshPrevious() TODO: why
 </script>
 
 <template>

@@ -6,12 +6,13 @@
     color: String,
     loading: Boolean
   })
+  const { amount } = toRefs(props)
 
   const heroIcons = {
     up: 'i-heroicons-arrow-trending-up',
     down: 'i-heroicons-arrow-trending-down'
   }
-
+  const { currency } = useCurrency(amount)
   const trendingUp = computed(
       () => props.amount >= props.lastAmount
   )
@@ -25,7 +26,6 @@
     const ratio = ((bigger - lower) / lower) * 100
     return `${Math.ceil(ratio)}%`
   })
-  const { currency } = useCurrency(props.amount)
 </script>
 
 <template>
